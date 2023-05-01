@@ -4,6 +4,8 @@ import Login from "../page/login/Login/Login";
 import Reg from "../page/login/reg/Reg";
 import Main from "../Layouts/Main";
 import Chef from "../Home/Chef/Chef";
+import Info from "../page/ChefInfo/Info/Info";
+import ChefLayout from "../Layouts/ChefLayout";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
                 element: <Navigate to="/home"></Navigate>
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
@@ -23,15 +25,33 @@ const router = createBrowserRouter([
                 element: <Reg></Reg>
             }
         ]
-        
 
-        
+
+
     },
     {
         path: 'home',
-        element: <Main></Main>
+        element: <Main></Main>,
+        children: [
+            {
+
+            }
+        ]
+
+    },
+    {
+        path: 'chef',
+        element: <ChefLayout></ChefLayout>,
+        children: [
+            {
+                path: ':id',
+                element: <Info></Info>,
+                loader: ({ params }) => fetch(`https://chef-recipe-server-fahimxgg.vercel.app/chef/${params.id}`)
+            }
+        ]
 
     }
+    
 ])
 
 export default router;

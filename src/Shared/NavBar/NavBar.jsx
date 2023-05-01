@@ -55,15 +55,10 @@ const NavBar = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link
-                        
-                        active={true}
-                    >
+                    
                         <Link to="/">Home</Link>
-                    </Navbar.Link>
-                    <Navbar.Link to="/login">
-                        Food
-                    </Navbar.Link>
+                    
+                
 
                 </Navbar.Collapse>
             </Navbar>

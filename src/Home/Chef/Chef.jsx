@@ -11,7 +11,7 @@ const Chef = () => {
             .then(data => setChef(data))
             .catch(error => console.error(error))
     }, [])
-    console.log(chef);
+    //console.log(chef);
 
     return (
         <div>
@@ -19,7 +19,7 @@ const Chef = () => {
                 {
                     chef.map(data => <ChefCard
                     key={data._id}
-                    
+                    data = {data}
                     ></ChefCard>
                         )
                 }
