@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChefCard from './ChefCard/ChefCard';
-import { useLoaderData } from 'react-router-dom';
+
 
 
 const Chef = () => {
@@ -19,7 +19,7 @@ const Chef = () => {
 
     return (
         <div>
-            <div>
+            <div className='grid lg:grid-cols-3 gap-10 lg:px-28 mt-6 p-5 '>
                 {
                     chef.map(data => <ChefCard
                     key={data._id}
