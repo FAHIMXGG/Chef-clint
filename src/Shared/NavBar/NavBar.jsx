@@ -1,8 +1,18 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const NavBar = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
+
     return (
         <div>
             <Navbar
@@ -49,7 +59,11 @@ const NavBar = () => {
                         </Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item>
-                            Sign out
+                            {
+                                user ?
+                                <Link onClick={handleLogOut}>Logout</Link> :
+                                <Link to="/login">Login</Link>
+                            }
                         </Dropdown.Item>
                     </Dropdown>
                     <Navbar.Toggle />

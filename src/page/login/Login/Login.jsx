@@ -1,10 +1,57 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Login = () => {
+
+    const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
+    }
+
+    const handleGitHubSignIn = () => {
+        gitHubSignIn()
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
+    }
+
+
     return (
         <div>
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleLogin} className="flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -44,6 +91,10 @@ const Login = () => {
                 <Button type="submit">
                     Submit
                 </Button>
+                <div>
+                    <Button onClick={handleGoogleSignIn}>Google</Button>
+                    <Button onClick={handleGitHubSignIn}>github</Button>
+                </div>
             </form>
         </div>
     );
