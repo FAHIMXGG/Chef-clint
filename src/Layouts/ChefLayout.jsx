@@ -6,7 +6,7 @@ import NavBar from '../Shared/NavBar/NavBar';
 
 const ChefLayout = () => {
     return (
-        <div className='mx-32'>
+        <div >
             <NavBar></NavBar>
             <Outlet></Outlet>
         </div>

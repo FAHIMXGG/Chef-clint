@@ -6,7 +6,7 @@ import Main from "../Layouts/Main";
 import Chef from "../Home/Chef/Chef";
 import Info from "../page/ChefInfo/Info/Info";
 import ChefLayout from "../Layouts/ChefLayout";
-import ChefInfo from "../page/ChefInfo/chefInfo";
+
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
