@@ -1,10 +1,33 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Reg = () => {
+    const { createUser, updateUserData } = useContext(AuthContext);
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, photo, email, password)
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+                updateUserData(result.user, name, photo)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
     return (
         <div>
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleRegister} className="flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
                         <Label
