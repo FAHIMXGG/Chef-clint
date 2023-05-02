@@ -4,12 +4,14 @@ import Chef from '../Home/Chef/Chef';
 import NavBar from '../Shared/NavBar/NavBar';
 import { useNavigation } from 'react-router-dom';
 import { Spinner } from 'flowbite-react';
+import Slider from '../Home/Slider/Slider';
 
 const Main = () => {
     const navigation = useNavigation();
     return (
-        <div className='md:mx-32'>
+        <div >
             <NavBar></NavBar>
+            <Slider></Slider>
             {navigation.state ===
 
                 'loading'
@@ -22,7 +24,9 @@ const Main = () => {
 
             }
 
-            <Chef></Chef>
+            <div className='md:mx-56'>
+                <Chef></Chef>
+            </div>
         </div>
     );
 };

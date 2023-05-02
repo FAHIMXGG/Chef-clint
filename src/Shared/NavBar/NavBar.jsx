@@ -14,7 +14,7 @@ const NavBar = () => {
     }
 
     return (
-        <div className=''>
+        <div className='md:mx-32'>
             <Navbar
                 fluid={true}
                 rounded={true}
