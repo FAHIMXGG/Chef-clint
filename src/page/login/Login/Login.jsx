@@ -54,7 +54,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className='mx-8 md:mx-80 md:px-80 mt-10'>
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
@@ -95,7 +95,7 @@ const Login = () => {
                 <Button type="submit">
                     Submit
                 </Button>
-                <div>
+                <div className='flex gap-3 justify-center'>
                     <Button onClick={handleGoogleSignIn}>Google</Button>
                     <Button onClick={handleGitHubSignIn}>github</Button>
                 </div>

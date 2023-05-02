@@ -26,7 +26,7 @@ const Reg = () => {
 
 
     return (
-        <div>
+        <div className='mx-8 md:mx-80 md:px-80 mt-10'>
             <form onSubmit={handleRegister} className="flex flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
