@@ -1,6 +1,7 @@
 import { Card, Dropdown } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 
 const ChefCard = ({ data }) => {
     //console.log(data)
@@ -30,8 +31,8 @@ const ChefCard = ({ data }) => {
                         <span className="text-sm text-gray-500 dark:text-gray-400">
                         Numbers of recipes <br /> <center>{num_rec}</center>
                         </span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                        Likes {like}
+                        <span className="items-center gap-2 flex text-sm text-gray-500 dark:text-gray-400">
+                        <FaHeart className='text-red-700'></FaHeart> {like}
                         </span>
                         
                         <div className="mt-4 flex space-x-3 lg:mt-6">
