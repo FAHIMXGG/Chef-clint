@@ -7,6 +7,7 @@ import Chef from "../Home/Chef/Chef";
 import Info from "../page/ChefInfo/Info/Info";
 import ChefLayout from "../Layouts/ChefLayout";
 import ChefInfo from "../page/ChefInfo/chefInfo";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <Info></Info>,
+                element: <PrivateRoute><Info></Info></PrivateRoute>,
                 loader: ({params}) => fetch(`https://chef-recipe-server-fahimxgg.vercel.app/chef/${params.id}`)
             }
         ]
