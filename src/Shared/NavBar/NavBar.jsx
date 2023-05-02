@@ -14,18 +14,18 @@ const NavBar = () => {
     }
 
     return (
-        <div className='md:mx-32'>
-            <Navbar
+        <div className=' '>
+            <Navbar className=' bg-orange-400'
                 fluid={true}
                 rounded={true}
             >
-                <Navbar.Brand href="https://flowbite.com/">
+                <Navbar.Brand href="https://github.com/FAHIMXGG">
                     
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white md:ml-16">
                     Seoul Garden
                     </span>
                 </Navbar.Brand>
-                <div className="flex md:order-2">
+                <div className="flex md:order-2 md:mr-16">
                     <div className='flex gap-3'>
                         <Link to="/login"><button>Login</button></Link>
                         <Link to="/reg"><button>Register</button></Link>

@@ -5,6 +5,7 @@ import NavBar from '../Shared/NavBar/NavBar';
 import { useNavigation } from 'react-router-dom';
 import { Spinner } from 'flowbite-react';
 import Slider from '../Home/Slider/Slider';
+import Footer from '../Shared/NavBar/Footer/Footer';
 
 const Main = () => {
     const navigation = useNavigation();
@@ -27,6 +28,7 @@ const Main = () => {
             <div className='md:mx-56'>
                 <Chef></Chef>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

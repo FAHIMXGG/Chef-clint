@@ -39,6 +39,7 @@ const Info = () => {
                     </Recipe>)
                 }
             </div>
+            
         </div>
     );
 };

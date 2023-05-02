@@ -1,6 +1,7 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
+import Footer from '../../../Shared/NavBar/Footer/Footer';
 
 const Reg = () => {
     const { createUser, updateUserData } = useContext(AuthContext);
@@ -26,8 +27,8 @@ const Reg = () => {
 
 
     return (
-        <div className='mx-8 md:mx-80 md:px-80 mt-10'>
-            <form onSubmit={handleRegister} className="flex flex-col gap-4">
+        <div className=''>
+            <form onSubmit={handleRegister} className="flex flex-col gap-4 mx-8 md:mx-80 md:px-80 mt-10">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -121,6 +122,7 @@ const Reg = () => {
                     Register new account
                 </Button>
             </form>
+            <Footer></Footer>
         </div>
     );
 };

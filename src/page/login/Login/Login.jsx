@@ -2,6 +2,7 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Footer from '../../../Shared/NavBar/Footer/Footer';
 
 const Login = () => {
 
@@ -54,8 +55,8 @@ const Login = () => {
 
 
     return (
-        <div className='mx-8 md:mx-80 md:px-80 mt-10'>
-            <form onSubmit={handleLogin} className="flex flex-col gap-4">
+        <div className=''>
+            <form onSubmit={handleLogin} className="flex flex-col gap-4 mx-8 md:mx-80 md:px-80 mt-10 md:mb-64">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -100,6 +101,7 @@ const Login = () => {
                     <Button onClick={handleGitHubSignIn}>github</Button>
                 </div>
             </form>
+            <Footer></Footer>
         </div>
     );
 };
