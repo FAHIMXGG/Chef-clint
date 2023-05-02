@@ -6,6 +6,7 @@ import Main from "../Layouts/Main";
 import Chef from "../Home/Chef/Chef";
 import Info from "../page/ChefInfo/Info/Info";
 import ChefLayout from "../Layouts/ChefLayout";
+import ChefInfo from "../page/ChefInfo/chefInfo";
 
 const router = createBrowserRouter([
     {
@@ -23,19 +24,28 @@ const router = createBrowserRouter([
             {
                 path: '/reg',
                 element: <Reg></Reg>
-            }
+            },
+           
+            
         ]
 
 
 
     },
+    // {
+    //     path: '/chef/:id',
+    //     element: <ChefInfo></ChefInfo>,
+    //     loader: ({params}) => fetch(`https://chef-recipe-server-fahimxgg.vercel.app/chef/${params.id}`)
+    // },
     {
         path: 'home',
         element: <Main></Main>,
         children: [
-            {
-
-            }
+            // {
+            //     path: 'home',
+            //     element: <Chef></Chef>,
+            //     loader: () => fetch('https://chef-recipe-server-fahimxgg.vercel.app/chef/')
+            // }
         ]
 
     },
@@ -46,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <Info></Info>,
-                loader: ({ params }) => fetch(`https://chef-recipe-server-fahimxgg.vercel.app/chef/${params.id}`)
+                loader: ({params}) => fetch(`https://chef-recipe-server-fahimxgg.vercel.app/chef/${params.id}`)
             }
         ]
 

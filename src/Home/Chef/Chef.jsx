@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChefCard from './ChefCard/ChefCard';
+import { useLoaderData } from 'react-router-dom';
 
 
 const Chef = () => {
@@ -12,6 +13,9 @@ const Chef = () => {
             .catch(error => console.error(error))
     }, [])
     //console.log(chef);
+
+    // const chef = useLoaderData()
+    // console.log(chef)
 
     return (
         <div>
