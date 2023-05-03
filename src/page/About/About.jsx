@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../../Shared/NavBar/Footer/Footer';
+import HotItem from '../../Shared/HotItem/HotItem';
 
 const About = () => {
     return (
@@ -12,6 +13,7 @@ const About = () => {
                 <p className="mb-4">At our restaurant, we believe that food is more than just sustenance—it's a way to bring people together and create lasting memories. That's why we strive to provide not only delicious meals, but also a welcoming atmosphere and friendly service.</p>
                 <p className="mb-4">Thank you for considering our restaurant for your next dining experience. We look forward to serving you!</p>
             </main>
+            <HotItem></HotItem>
             <Footer></Footer>
         </div>
     );
