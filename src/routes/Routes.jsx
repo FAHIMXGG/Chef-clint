@@ -8,11 +8,15 @@ import Info from "../page/ChefInfo/Info/Info";
 import ChefLayout from "../Layouts/ChefLayout";
 
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../page/Blog/Blog";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
+import About from "../page/About/About";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layouts></Layouts>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -26,6 +30,17 @@ const router = createBrowserRouter([
                 path: '/reg',
                 element: <Reg></Reg>
             },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+
+            },
+           
+            {
+                path: '/about',
+                element: <About></About>
+
+            }
            
             
         ]
