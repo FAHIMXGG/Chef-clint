@@ -14,6 +14,9 @@ const About = () => {
                 <p className="mb-4">Thank you for considering our restaurant for your next dining experience. We look forward to serving you!</p>
             </main>
             <HotItem></HotItem>
+            <div className='mb-24'>
+
+            </div>
             <Footer></Footer>
         </div>
     );

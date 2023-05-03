@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from './Recipe/Recipe';
 import { FaHeart } from 'react-icons/fa';
@@ -12,13 +12,20 @@ import 'react-toastify/dist/ReactToastify.css';
 const Info = () => {
     // const {id} = useParams()
     // console.log(id)
+    const [disabled, setDisabled] = useState(false);
     const handleNotify = () => {
         notify()
+        onClick()
+        
         
     }
     const notify = () =>{
         toast("Favorite ♡")
     }
+    const onClick = () => {
+        setDisabled(true);
+      };
+    
 
     const chef = useLoaderData()
     console.log(chef)
@@ -46,6 +53,7 @@ const Info = () => {
                         key={rec.rec_id}
                         rec={rec}
                         handleNotify= {handleNotify}
+                        disabled ={disabled}
 
                     >
 

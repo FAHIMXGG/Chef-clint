@@ -47,7 +47,7 @@ const Reg = () => {
 
     return (
         <div className=''>
-            <form onSubmit={handleRegister} className="flex flex-col gap-4 mx-8 md:mx-80 md:px-80 mt-10">
+            <form onSubmit={handleRegister} className="flex flex-col gap-4 mx-8 md:mx-80 md:px-80 mt-10 md:mb-32">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -127,6 +127,10 @@ const Reg = () => {
                     />
                 </div>
                 <p className='text-orange-700'>{error}</p>
+                <div><p className='text-xs font-medium'>
+                    Already Have An Account? <Link className='text-orange-400 font-bold' to="/Login">Login</Link> <br />
+                    <p>Or Login with <Link className='text-orange-400 font-bold' to="/Login">Google or GitHub</Link></p>
+                    </p></div>
                 <div className="flex items-center gap-2">
                     <Checkbox id="agree" 
                     onClick={handleAccepted}

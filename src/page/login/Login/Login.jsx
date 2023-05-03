@@ -1,7 +1,7 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../../Shared/NavBar/Footer/Footer';
 
 const Login = () => {
@@ -98,12 +98,16 @@ const Login = () => {
                         Remember me
                     </Label>
                 </div>
+                <div><p className='text-xs font-medium'>
+                    No Account? <Link className='text-orange-400 font-bold' to="/reg">Register</Link> <br />
+                    <p>Or Login with Google or GitHub</p>
+                    </p></div>
                 <Button className='bg-orange-400 hover:bg-orange-800' type="submit">
                     Submit
                 </Button>
                 <div className='flex gap-3 justify-center'>
                     <Button className='bg-orange-400 hover:bg-orange-800' onClick={handleGoogleSignIn}>Google</Button>
-                    <Button className='bg-orange-400 hover:bg-orange-800' onClick={handleGitHubSignIn}>github</Button>
+                    <Button className='bg-orange-400 hover:bg-orange-800' onClick={handleGitHubSignIn}>GitHub</Button>
                 </div>
             </form>
             <Footer></Footer>

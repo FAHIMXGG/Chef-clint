@@ -3,8 +3,8 @@ import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 
 
-const Recipe = ({rec, handleNotify}) => {
-
+const Recipe = ({rec, handleNotify, disabled}) => {
+    
 
     const {rec_id, recipe_name, ingredients, cooking_method, rating, img} = rec
     return (
@@ -20,9 +20,9 @@ const Recipe = ({rec, handleNotify}) => {
                 </div>
             </div>
             <div className='basis-1/4 flex items-center justify-center flex-col'>
-                <p>{rating}</p>
+                <p className='mb-2'>Ratting: {rating}</p>
                 <div>
-                <Button onClick={() => handleNotify()} className='bg-orange-950'> <span className="font-bold items-center gap-2 flex text-sm text-gray-500 dark:text-gray-400">
+                <Button disabled={disabled} onClick={() => handleNotify()} className='bg-orange-950'> <span className="font-bold items-center gap-2 flex text-sm text-gray-500 dark:text-gray-400">
                         <FaHeart className='text-red-700'> </FaHeart> 
                     </span> Favorite </Button>
                 </div>
