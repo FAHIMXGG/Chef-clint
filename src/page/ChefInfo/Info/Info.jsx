@@ -2,19 +2,31 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from './Recipe/Recipe';
 import { FaHeart } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import { Button } from 'flowbite-react';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Info = () => {
     // const {id} = useParams()
     // console.log(id)
+    const handleNotify = () => {
+        notify()
+        
+    }
+    const notify = () =>{
+        toast("Favorite ♡")
+    }
+
     const chef = useLoaderData()
     console.log(chef)
     const { _id, name, exp, num_rec, like, recipe_info, chef_picture, bio } = chef
     return (
         <div>
-
-            <div className='bg-orange-300  flex flex-col items-center '>
+            
+            <div className='bg-orange-300  flex flex-col items-center p-5 md:p-0'>
                 <img className='w-52 mt-20 rounded' src={chef_picture} alt="" />
                 <h1 className='mt-5 font-bold text-2xl text-orange-500 st'>{name}</h1>
                 <div className='md:px-52 md:mx-96 text-center mt-5'><p><span className='font-bold'>Bio:</span> <br /> {bio}</p></div >
@@ -33,12 +45,14 @@ const Info = () => {
                     recipe_info.map(rec => <Recipe
                         key={rec.rec_id}
                         rec={rec}
+                        handleNotify= {handleNotify}
 
                     >
 
                     </Recipe>)
                 }
             </div>
+            <ToastContainer />
             
         </div>
     );

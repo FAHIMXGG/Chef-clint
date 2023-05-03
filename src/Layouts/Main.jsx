@@ -26,7 +26,18 @@ const Main = () => {
             }
 
             <div className='md:mx-56'>
-                <Chef></Chef>
+
+                <Chef>{navigation.state ===
+
+                    'loading'
+
+                    &&
+
+                    <div className="text-center">
+                        <Spinner aria-label="Default status example" />
+                    </div>
+
+                }</Chef>
             </div>
             <Footer></Footer>
         </div>
