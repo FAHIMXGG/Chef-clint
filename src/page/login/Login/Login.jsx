@@ -1,4 +1,4 @@
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Button, Checkbox, Label, Spinner, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -6,11 +6,20 @@ import Footer from '../../../Shared/NavBar/Footer/Footer';
 
 const Login = () => {
 
-    const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, gitHubSignIn, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
     const [error, setError] = useState('');
     const from = location.state?.from?.pathname || '/'
+
+    if (loading) {
+        return (<div className="text-center mt-24">
+            <Spinner
+                color="failure"
+                aria-label="Failure spinner example"
+            />
+        </div>)
+    }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -58,10 +67,10 @@ const Login = () => {
 
     return (
         <div className=''>
-            <form onSubmit={handleLogin} className="flex flex-col gap-4 mx-8 md:mx-80 md:px-80 mt-10 md:mb-64">
+            <form onSubmit={handleLogin} className="flex flex-col gap-4 mx-8 md:mx-52 md:px-80 mt-10 md:mb-64">
                 <div>
                     <div className="mb-2 block">
-                        <Label 
+                        <Label
                             htmlFor="email1"
                             value="Your email"
 
@@ -101,7 +110,7 @@ const Login = () => {
                 <div><p className='text-xs font-medium'>
                     No Account? <Link className='text-orange-400 font-bold' to="/reg">Register</Link> <br />
                     <p>Or Login with Google or GitHub</p>
-                    </p></div>
+                </p></div>
                 <Button className='bg-orange-400 hover:bg-orange-800' type="submit">
                     Submit
                 </Button>

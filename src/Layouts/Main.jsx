@@ -21,7 +21,10 @@ const Main = () => {
                 &&
 
                 <div className="text-center">
-                    <Spinner aria-label="Default status example" />
+                    <Spinner
+                        color="failure"
+                        aria-label="Failure spinner example"
+                    />
                 </div>
 
             }

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ChefCard from './ChefCard/ChefCard';
 import { FaLeaf } from 'react-icons/fa';
+import { AuthContext } from '../../provider/AuthProvider';
+import { Spinner } from 'flowbite-react';
 
 
 
@@ -8,6 +10,7 @@ import { FaLeaf } from 'react-icons/fa';
 
 
 const Chef = () => {
+    const {loading} = useContext(AuthContext)
     const [chef, setChef] = useState([]);
 
 
@@ -21,6 +24,14 @@ const Chef = () => {
 
     // const chef = useLoaderData()
     // console.log(chef)
+    if(loading){
+        return (  <div className="text-center mt-24">
+        <Spinner
+    color="failure"
+    aria-label="Failure spinner example"
+  />
+      </div>)
+    }
  
 
     return (

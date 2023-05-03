@@ -65,6 +65,7 @@ const AuthProvider = ({children}) => {
         googleSignIn,
         gitHubSignIn,
         updateUserData,
+        
     }
 
     // private route
