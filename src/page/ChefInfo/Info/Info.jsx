@@ -40,7 +40,7 @@ const Info = () => {
                     </span>
                 </div>
             </div>
-            <div>
+            <div className='bg-orange-300'>
                 {
                     recipe_info.map(rec => <Recipe
                         key={rec.rec_id}

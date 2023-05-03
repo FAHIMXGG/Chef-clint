@@ -22,7 +22,7 @@ const NavBar = () => {
             >
                 <Navbar.Brand href="https://github.com/FAHIMXGG">
 
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white md:ml-16  font-mono">
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white md:ml-16  font-mono text-orange-400">
                         Seoul Garden
                     </span>
                 </Navbar.Brand>

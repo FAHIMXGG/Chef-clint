@@ -23,7 +23,7 @@ const Recipe = ({rec, handleNotify}) => {
                 <p>{rating}</p>
                 <div>
                 <Button onClick={() => handleNotify()} className='bg-orange-950'> <span className="font-bold items-center gap-2 flex text-sm text-gray-500 dark:text-gray-400">
-                        <FaHeart className='text-red-700'> </FaHeart>
+                        <FaHeart className='text-red-700'> </FaHeart> 
                     </span> Favorite </Button>
                 </div>
             </div>

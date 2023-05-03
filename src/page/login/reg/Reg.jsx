@@ -1,12 +1,13 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import Footer from '../../../Shared/NavBar/Footer/Footer';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Reg = () => {
     const { createUser, updateUserData } = useContext(AuthContext);
-
+    const [error, setError]=useState('')
+    const [accepted, setAccepted] = useState(false);
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
@@ -18,6 +19,12 @@ const Reg = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
+
+        if(password!==confirm){
+            setError('Password not matched')
+            return;
+        }
 
         console.log(name, photo, email, password)
         createUser(email, password)
@@ -25,11 +32,16 @@ const Reg = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 updateUserData(result.user, name, photo)
+                form.reset();
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
             })
+    }
+
+    const handleAccepted = event =>{
+        setAccepted(event.target.checked)
     }
 
 
@@ -109,25 +121,35 @@ const Reg = () => {
                     <TextInput
                         id="repeat-password"
                         type="password"
+                        name='confirm'
                         required={true}
                         shadow={true}
                     />
                 </div>
+                <p className='text-orange-700'>{error}</p>
                 <div className="flex items-center gap-2">
-                    <Checkbox id="agree" />
-                    <Label htmlFor="agree">
-                        I agree with the
-                        <a
+                    <Checkbox id="agree" 
+                    onClick={handleAccepted}
+                    type="checkbox" 
+                    name="accept" 
+                    
+                    />
+                    <Label htmlFor="agree"
+                    
+                    >
+                        I agree with the  {' '}
+                        <Link
                             href="/forms"
-                            className="text-blue-600 hover:underline dark:text-blue-500"
+                            className="text-orange-400 hover:underline dark:text-blue-500"
                         >
-                            terms and conditions
-                        </a>
+                             terms and conditions 
+                        </Link>
                     </Label>
                 </div>
-                <Button type="submit" to="/home">
+                <Button disabled={!accepted} className='bg-orange-400 hover:bg-orange-800' type="submit" to="/home">
                     Register new account
                 </Button>
+                
             </form>
             <Footer></Footer>
         </div>
