@@ -2,13 +2,14 @@ import { Card, Dropdown } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ data }) => {
     //console.log(data)
     const { _id, name, exp, num_rec, like, chef_picture } = data
     return (
         <div className=''>
-
+            
 
 
             <div className="max-w-sm">
@@ -17,11 +18,13 @@ const ChefCard = ({ data }) => {
 
                     </div>
                     <div className="flex flex-col items-center pb-10">
-                        <img
-                            className="mb-3 h-24 w-24 rounded-full shadow-lg"
-                            src={chef_picture}
-                            alt="Bonnie image"
-                        />
+                        <LazyLoad threshold={0.95}>
+                            <img
+                                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                                src={chef_picture}
+                                alt="Bonnie image"
+                            />
+                        </LazyLoad>
                         <h5 className="mb-1 text-xl font-medium font-mono dark:text-white text-orange-400">
                             {name}
                         </h5>
@@ -29,12 +32,12 @@ const ChefCard = ({ data }) => {
                             Years of experience <br /> <center>{exp}</center>
                         </span>
                         <span className="text-sm text-gray-500 dark:text-gray-400">
-                        Numbers of recipes <br /> <center>{num_rec}</center>
+                            Numbers of recipes <br /> <center>{num_rec}</center>
                         </span>
                         <span className="items-center gap-2 flex text-sm text-gray-500 dark:text-gray-400">
-                        <FaHeart className='text-red-700'></FaHeart> {like}
+                            <FaHeart className='text-red-700'></FaHeart> {like}
                         </span>
-                        
+
                         <div className="mt-4 flex space-x-3 lg:mt-6">
 
                             <Link
