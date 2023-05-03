@@ -2,9 +2,15 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import Footer from '../../../Shared/NavBar/Footer/Footer';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Reg = () => {
     const { createUser, updateUserData } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -19,6 +25,7 @@ const Reg = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 updateUserData(result.user, name, photo)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
@@ -118,7 +125,7 @@ const Reg = () => {
                         </a>
                     </Label>
                 </div>
-                <Button type="submit">
+                <Button type="submit" to="/home">
                     Register new account
                 </Button>
             </form>
