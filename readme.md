@@ -23,4 +23,4 @@
 11. Active Link
 12. PDF: https://www.npmjs.com/package/react-to-print
 13. react-lazy-load: https://www.npmjs.com/package/react-lazy-load
-
+14. Environment variable

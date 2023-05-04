@@ -1,25 +1,27 @@
-import { Button, Checkbox, Label, Spinner, TextInput } from 'flowbite-react';
+import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../../Shared/NavBar/Footer/Footer';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
 
-    const { signIn, googleSignIn, gitHubSignIn, loading } = useContext(AuthContext);
+    const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
+    const [show, setShow] = useState(false)
     const [error, setError] = useState('');
     const from = location.state?.from?.pathname || '/'
 
-    if (loading) {
-        return (<div className="text-center mt-24">
-            <Spinner
-                color="failure"
-                aria-label="Failure spinner example"
-            />
-        </div>)
-    }
+    // if (loading) {
+    //     return (<div className="text-center mt-24">
+    //         <Spinner
+    //             color="failure"
+    //             aria-label="Failure spinner example"
+    //         />
+    //     </div>)
+    // }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -91,12 +93,16 @@ const Login = () => {
                             value="Your password"
                         />
                     </div>
-                    <TextInput
+                    <TextInput 
                         id="password1"
-                        type="password"
+                        type={show ? 'text' : 'password'}
                         name='password'
                         required={true}
                     />
+                    <button className='  p-1  border rounded-lg  mt-2' onClick={(event) => {event.preventDefault(); setShow(!show)}}><small>
+                                {
+                                    show ? <span><FaEyeSlash></FaEyeSlash></span> : <span><FaEye></FaEye></span>
+                                }</small></button>
                 </div>
                 <div>
                     <p className='text-red-500'>{error && "email address or password doesn't match"}</p>
